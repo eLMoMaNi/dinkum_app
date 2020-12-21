@@ -1,5 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dinkum_app">
+    <!--allow internet connection -->
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="dinkum_app"
         android:icon="@mipmap/ic_launcher">

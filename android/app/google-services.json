@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "943557311860",
+    "project_id": "dinkum-feb86",
+    "storage_bucket": "dinkum-feb86.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:943557311860:android:ded77458478043356bc021",
+        "android_client_info": {
+          "package_name": "com.dinkumapp.dinkum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "943557311860-nrml8m6snd76ap94fsv7pgbipvoqtkfb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDg-HMQPR-XeZOqZpU_UjmjohOUMHhBT1I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "943557311860-nrml8m6snd76ap94fsv7pgbipvoqtkfb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
