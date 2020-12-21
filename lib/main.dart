@@ -1,3 +1,8 @@
+import 'package:dinkum_app/screens/dashboard/community_screen.dart';
+import 'package:dinkum_app/screens/dashboard/home_screen.dart';
+import 'package:dinkum_app/screens/dashboard/profile_screen.dart';
+import 'package:dinkum_app/screens/dashboard/swap_screen.dart';
+import 'package:dinkum_app/screens/dashboard_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/login_screen.dart';
@@ -29,6 +34,13 @@ class MyApp extends StatelessWidget {
             ),
       ),
       home: LoginScreen(),
+      routes: {
+        "/dashboard": (_) => DashboardScreen(),
+        "/articles": (_) => ArticlesScreen(),
+        "/swap": (_) => SwapScreen(),
+        "/community": (_) => CommunityScreen(),
+        "/profile": (_) => ProfileScreen(),
+      },
     );
   }
 }

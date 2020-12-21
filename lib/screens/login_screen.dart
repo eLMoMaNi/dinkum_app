@@ -1,4 +1,5 @@
 //TODO
+import 'package:dinkum_app/screens/dashboard_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -8,7 +9,12 @@ class LoginScreen extends StatelessWidget {
       body: ListView(
         children: [
           Text("Loging screen"),
-          FlatButton(onPressed: null, child: Text("Login"))
+          FlatButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .pushReplacementNamed(DashboardScreen.route);
+              },
+              child: Text("Login"))
         ],
       ),
     );
