@@ -1,7 +1,7 @@
 import "package:flutter/foundation.dart";
 
-import './user.dart';
-import "./cate.dart";
+import 'user.dart';
+import 'cate.dart';
 
 class Article {
   String title;
@@ -9,7 +9,7 @@ class Article {
   List<Cate> category;
   String featuredImg; //?.
   //server-side
-  String link;
+  String id;
   User user;
   int upvotes;
   int downvotes;
@@ -21,7 +21,7 @@ class Article {
       @required this.category,
       this.featuredImg,
       this.user,
-      this.link,
+      this.id,
       this.upvotes,
       this.downvotes,
       this.votes});
