@@ -8,8 +8,13 @@ class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   // auth change user stream
-  Stream<User> get user {
+  Stream<User> get userStream {
     return _auth.authStateChanges();
+  }
+
+  // auth change user stream
+  User get user {
+    return _auth.currentUser;
   }
 
   // sign in anonymous
