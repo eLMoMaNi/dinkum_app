@@ -1,4 +1,4 @@
-class User {
+class Profile {
   String email;
   String username;
   String pfp;

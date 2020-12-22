@@ -1,6 +1,6 @@
 import "package:flutter/foundation.dart";
 
-import 'user.dart';
+import 'profile.dart';
 import 'cate.dart';
 
 class Article {
@@ -10,7 +10,7 @@ class Article {
   String featuredImg; //?.
   //server-side
   String id;
-  User user;
+  Profile author;
   int upvotes;
   int downvotes;
   int votes;
@@ -20,7 +20,7 @@ class Article {
       @required this.content,
       @required this.category,
       this.featuredImg,
-      this.user,
+      this.author,
       this.id,
       this.upvotes,
       this.downvotes,
