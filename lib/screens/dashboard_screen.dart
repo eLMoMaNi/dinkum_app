@@ -33,7 +33,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ),
       body: tabs[_currentTabIdx],
       bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
+        type: BottomNavigationBarType.shifting,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white,
+        selectedLabelStyle:
+            TextStyle(fontWeight: FontWeight.normal, fontSize: 12),
         currentIndex: _currentTabIdx,
         onTap: (idx) {
           setState(() {
@@ -42,13 +46,25 @@ class _DashboardScreenState extends State<DashboardScreen> {
         },
         items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.article_outlined), title: Text("Articles")),
+            icon: Icon(Icons.article_outlined),
+            title: Text("Articles"),
+            backgroundColor: Colors.blue,
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.swap_horiz), title: Text("Swap")),
+            icon: Icon(Icons.swap_horiz),
+            title: Text("Swap"),
+            backgroundColor: Colors.blue,
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.people), title: Text("Community")),
+            icon: Icon(Icons.people),
+            title: Text("Community"),
+            backgroundColor: Colors.blue,
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person_pin), title: Text("My Profile")),
+            icon: Icon(Icons.person_pin),
+            title: Text("My Profile"),
+            backgroundColor: Colors.blue,
+          ),
         ],
       ),
     );
