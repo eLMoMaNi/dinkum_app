@@ -1,23 +1,12 @@
-import 'package:dinkum_app/models/cate.dart';
-
 import '../models/article.dart';
 import "package:flutter/material.dart";
 
 class ArticleCard extends StatefulWidget {
   Article article;
+  ArticleCard(this.article);
   @override
   _ArticleCardState createState() => _ArticleCardState();
 }
-
-Article article = Article(
-    title:
-        "عنوان تجريبي عنوان تجريبي عنوان تجريبي عنوان تجريبي عنوان تجريبي عنوان تجريبي عنوان تجريبي ",
-    category: [Cate.Art],
-    content:
-        "هذا نص تجريبي وضع لمعاينة شكل النص العربي في مقالة البرنامج الافتارضيه الاكترونيه المرئيه الضوئيه المنسية هذا نص تجريبي وضع لمعاينة شكل النص العربي في مقالة البرنامج الافتارضيه الاكترونيه المرئيه الضوئيه المنسية هذا نص تجريبي وضع لمعاينة شكل النص العربي في مقالة البرنامج الافتارضيه الاكترونيه المرئيه الضوئيه المنسية ",
-    featuredImg:
-        "https://www.finalsitesupport.com/hc/article_attachments/360000650392/800x600.png",
-    votes: 167);
 
 class _ArticleCardState extends State<ArticleCard> {
   void vote(String articleId, bool upVote) {
@@ -36,15 +25,15 @@ class _ArticleCardState extends State<ArticleCard> {
                   child: Column(
                     children: [
                       Text(
-                        article.title,
+                        widget.article.title,
                         style: Theme.of(context).textTheme.headline6,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                       ),
-                      if (article.featuredImg != null)
-                        Image.network(article.featuredImg),
+                      if (widget.article.featuredImg != null)
+                        Image.network(widget.article.featuredImg),
                       Text(
-                        article.content,
+                        widget.article.content,
                         style: Theme.of(context).textTheme.subtitle2,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 3,
@@ -71,13 +60,13 @@ class _ArticleCardState extends State<ArticleCard> {
                     IconButton(
                         icon: Icon(Icons.arrow_circle_up),
                         onPressed: () {
-                          vote(article.id, true);
+                          vote(widget.article.id, true);
                         }),
-                    Text(article.votes.toString()),
+                    Text(widget.article.votes.toString()),
                     IconButton(
                         icon: Icon(Icons.arrow_circle_down),
                         onPressed: () {
-                          vote(article.id, false);
+                          vote(widget.article.id, false);
                         }),
                   ],
                 ),

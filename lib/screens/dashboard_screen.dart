@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'dashboard/community_screen.dart';
-import 'dashboard/home_screen.dart';
+import 'dashboard/articles_screen.dart';
 import 'dashboard/profile_screen.dart';
 import 'dashboard/swap_screen.dart';
 

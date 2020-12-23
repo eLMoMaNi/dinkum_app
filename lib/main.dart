@@ -8,7 +8,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 
 import './screens/dashboard/community_screen.dart';
-import './screens/dashboard/home_screen.dart';
+import 'screens/dashboard/articles_screen.dart';
 import './screens/dashboard/profile_screen.dart';
 import './screens/dashboard/swap_screen.dart';
 import './screens/dashboard_screen.dart';
