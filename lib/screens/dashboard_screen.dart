@@ -1,3 +1,5 @@
+import 'package:dinkum_app/screens/create_article_screen.dart';
+import 'package:dinkum_app/screens/dashboard/create_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -13,9 +15,17 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
+  List<Color> _tabColors = [
+    Colors.blue,
+    Colors.indigo,
+    Colors.cyan,
+    Colors.deepPurple,
+    Colors.teal
+  ];
   List<Widget> tabs = [
     ArticlesScreen(),
     SwapScreen(),
+    CreateScreen(),
     CommunityScreen(),
     ProfileScreen(),
   ];
@@ -27,6 +37,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Dinkum"),
+        backgroundColor: _tabColors[_currentTabIdx],
         centerTitle: true,
         leading: IconButton(
           icon: Icon(Icons.search),
@@ -39,7 +50,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white,
         selectedLabelStyle:
-            TextStyle(fontWeight: FontWeight.normal, fontSize: 12),
+            TextStyle(fontWeight: FontWeight.w600, fontSize: 12),
         currentIndex: _currentTabIdx,
         onTap: (idx) {
           setState(() {
@@ -49,23 +60,31 @@ class _DashboardScreenState extends State<DashboardScreen> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.article_outlined),
-            title: Text("Articles"),
+            title: Text("مقالات"),
             backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.swap_horiz),
-            title: Text("Swap"),
-            backgroundColor: Colors.blue,
+            title: Text("تبادل"),
+            backgroundColor: Colors.indigo,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.add_box_outlined,
+              size: 30,
+            ),
+            backgroundColor: _tabColors[_currentTabIdx],
+            title: Text("إنشاء"),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.people),
-            title: Text("Community"),
-            backgroundColor: Colors.blue,
+            title: Text("مُجتمع"),
+            backgroundColor: Colors.deepPurple,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_pin),
-            title: Text("My Profile"),
-            backgroundColor: Colors.blue,
+            title: Text("حِسابي"),
+            backgroundColor: Colors.teal,
           ),
         ],
       ),

@@ -1,3 +1,7 @@
+import 'package:dinkum_app/screens/article_screen.dart';
+import 'package:dinkum_app/shared/constants.dart';
+import 'package:dinkum_app/widgets/category_chip.dart';
+
 import '../models/article.dart';
 import "package:flutter/material.dart";
 
@@ -31,7 +35,16 @@ class _ArticleCardState extends State<ArticleCard> {
                         maxLines: 2,
                       ),
                       if (widget.article.featuredImg != null)
-                        Image.network(widget.article.featuredImg),
+                        Container(
+                            height: 200,
+                            width: double.infinity,
+                            child: Image.network(
+                              widget.article.featuredImg,
+                              fit: BoxFit.cover,
+                            )),
+                      SizedBox(
+                        height: 7,
+                      ),
                       Text(
                         widget.article.content,
                         style: Theme.of(context).textTheme.subtitle2,
@@ -46,7 +59,10 @@ class _ArticleCardState extends State<ArticleCard> {
                   child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (_) => ArticleScreen(widget.article)));
+                  },
                 ),
               )),
             ],
@@ -71,21 +87,47 @@ class _ArticleCardState extends State<ArticleCard> {
                   ],
                 ),
               ),
-              IconButton(
-                  icon: Icon(Icons.insert_comment),
-                  onPressed: () {
-                    //TODO go to article (comments) function
-                  }),
+              CategoryChip(
+                text: widget.article.categories[0],
+                color: article_ccolors[widget.article.categories[0]],
+                callBack: () {}, //TODO article card open category
+              ),
               IconButton(
                   icon: Icon(Icons.share),
                   onPressed: () {
                     //TODO share a article function
                   }),
-              IconButton(
-                  icon: Icon(Icons.more_vert),
-                  onPressed: () {
-                    //TODO article card more options button
-                  }),
+              PopupMenuButton(
+                itemBuilder: (_) => [
+                  PopupMenuItem(
+                    child: Text("التعليقات"),
+                    value: "comments",
+                  ),
+                  PopupMenuItem(
+                    child: Text(
+                        "إلغاء متابعة تصنيف ${widget.article.categories[0]}"),
+                    value: "categoryUnsub",
+                  ),
+                  PopupMenuItem(
+                    child: Text("إلغاء متابعة الكاتب"),
+                    value: "authorUnsub",
+                  ),
+                  PopupMenuItem(
+                    child: Text("إبلاغ عن محتوى مُسيء"),
+                    value: "report",
+                  ),
+                ],
+                tooltip: "مزيد من الخيارات",
+                onSelected: (selected) {
+                  switch (selected) {
+                    case "comments":
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (_) => ArticleScreen(widget.article)));
+                      break;
+                    default:
+                  }
+                },
+              )
             ],
           )
         ],
