@@ -16,14 +16,16 @@ class CategoryChip extends StatelessWidget {
         callBack();
       },
       child: Chip(
-        padding: EdgeInsets.symmetric(horizontal: 50),
-        label: Text(
-          text,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-              color: Theme.of(context).scaffoldBackgroundColor),
+        label: Container(
+          width: 150,
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: Theme.of(context).scaffoldBackgroundColor),
+          ),
         ),
         backgroundColor: color,
       ),

@@ -5,33 +5,26 @@ import 'package:firebase_auth/firebase_auth.dart';
 /// used to get used authenticted
 class AuthService {
   /// [FirebaseAuth] instance used to call API functions
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth _fai = FirebaseAuth.instance;
 
   // auth change user stream
   Stream<User> get userStream {
-    return _auth.authStateChanges();
+    return _fai.authStateChanges();
   }
 
   // auth change user stream
   User get user {
-    return _auth.currentUser;
+    return _fai.currentUser;
   }
 
-  // sign in anonymous
-  Future signInAnon() async {
-    try {
-      UserCredential result = await _auth.signInAnonymously();
-      return result.user;
-    } catch (e) {
-      print(e.toString());
-      return null;
-    }
+  String get userId {
+    return user.uid;
   }
 
   // sign in with email and password
   Future signInWithEmailAndPassword(String email, String password) async {
     try {
-      UserCredential result = await _auth.signInWithEmailAndPassword(
+      UserCredential result = await _fai.signInWithEmailAndPassword(
           email: email, password: password);
       return result.user;
     } catch (error) {
@@ -43,9 +36,8 @@ class AuthService {
   // register with email and password
   Future registerWithEmailAndPassword(String email, String password) async {
     try {
-      UserCredential result = await _auth.createUserWithEmailAndPassword(
+      UserCredential result = await _fai.createUserWithEmailAndPassword(
           email: email, password: password);
-      User user = result.user;
 
       return result.user;
     } catch (error) {
@@ -57,7 +49,7 @@ class AuthService {
   // sign out
   Future signOut() async {
     try {
-      return await _auth.signOut();
+      return await _fai.signOut();
     } catch (error) {
       print(error.toString());
       return null;

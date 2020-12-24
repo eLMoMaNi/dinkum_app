@@ -30,14 +30,14 @@ class Article {
       this.votes});
   Article.fromSnapshot(DocumentSnapshot snapshot) {
     Map<String, dynamic> data = snapshot.data();
-    title = data["title"];
-    content = data["content"];
+    title = data["title"] ?? "No Title Error";
+    content = data["content"] ?? "No Content Error";
     categories = List.from(data["categories"] ?? []);
-    featuredImg = data["featured_img"];
-    authorId = data["author_id"];
-    id = snapshot.id;
-    upvotes = data["upvotes"];
-    downvotes = data["downvotes"];
+    featuredImg = data["featured_img"] ?? "https://via.placeholder.com/300";
+    authorId = data["author_id"] ?? "unknown";
+    id = snapshot.id ?? "";
+    upvotes = data["upvotes"] ?? 0;
+    downvotes = data["downvotes"] ?? 0;
     votes = upvotes - downvotes; //??
   }
 }
