@@ -3,19 +3,30 @@ import 'package:flutter/material.dart';
 class CategoryChip extends StatelessWidget {
   final String text;
   final Color color;
-  final Function callBack;
-  CategoryChip({
-    @required this.text,
-    @required this.color,
-    @required this.callBack,
-  });
+  final Function onPressed;
+  final bool hasBorder;
+  CategoryChip(
+      {@required this.text,
+      @required this.color,
+      @required this.onPressed,
+      this.hasBorder = false});
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        callBack();
+        onPressed();
       },
       child: Chip(
+        shape: StadiumBorder(
+          side: hasBorder
+              ? BorderSide(
+                  width: 4,
+                  color: Colors.white,
+                )
+              : BorderSide(color: Colors.transparent),
+        ),
+        elevation: 2,
+        shadowColor: Colors.black,
         label: Container(
           width: 150,
           child: Text(

@@ -47,8 +47,15 @@ class _ArticlesScreenState extends State<ArticlesScreen> {
                                   child: CategoryChip(
                                       text: entry.key,
                                       color: entry.value,
-                                      callBack: () => setState(() {
-                                            selectedCategories = [entry.key];
+                                      hasBorder: selectedCategories
+                                          .contains(entry.key),
+                                      onPressed: () => setState(() {
+                                            if (selectedCategories
+                                                .contains(entry.key))
+                                              selectedCategories
+                                                  .remove(entry.key);
+                                            else
+                                              selectedCategories.add(entry.key);
                                           })),
                                 ))).toList(),
                       ),

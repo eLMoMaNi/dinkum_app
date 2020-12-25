@@ -90,7 +90,7 @@ class _ArticleCardState extends State<ArticleCard> {
               CategoryChip(
                 text: widget.article.categories[0],
                 color: article_ccolors[widget.article.categories[0]],
-                callBack: () {}, //TODO article card open category
+                onPressed: () {}, //TODO article card open category
               ),
               IconButton(
                   icon: Icon(Icons.share),

@@ -80,7 +80,7 @@ class _CreateArticleScreenState extends State<CreateArticleScreen> {
           : CategoryChip(
               text: _selectedCategories,
               color: article_ccolors[_selectedCategories],
-              callBack: () {
+              onPressed: () {
                 buildCategoriesDialog(context, vw);
               }),
     );
@@ -224,7 +224,7 @@ class _CreateArticleScreenState extends State<CreateArticleScreen> {
                   (entry) => CategoryChip(
                     text: entry.key,
                     color: entry.value,
-                    callBack: () {
+                    onPressed: () {
                       setState(() => _selectedCategories = entry.key);
                       Navigator.of(context).pop();
                     },

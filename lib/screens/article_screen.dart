@@ -42,7 +42,6 @@ class ArticleScreen extends StatelessWidget {
                 ),
               ),
               centerTitle: true,
-              automaticallyImplyLeading: false,
               expandedHeight: .35 * vh,
               floating: false,
               pinned: true,
@@ -54,7 +53,7 @@ class ArticleScreen extends StatelessWidget {
                   background: Image.network(
                     article.featuredImg,
                     width: vw,
-                    //height: .35 * vh - 10,
+                    // height: vh,
                     fit: BoxFit.cover,
                   )),
             ),
@@ -68,30 +67,5 @@ class ArticleScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
-  _SliverAppBarDelegate(this._tabBar);
-
-  final TabBar _tabBar;
-
-  @override
-  double get minExtent => _tabBar.preferredSize.height;
-  @override
-  double get maxExtent => _tabBar.preferredSize.height;
-
-  @override
-  Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return Container(
-      color: Theme.of(context).scaffoldBackgroundColor,
-      child: _tabBar,
-    );
-  }
-
-  @override
-  bool shouldRebuild(_SliverAppBarDelegate oldDelegate) {
-    return true;
   }
 }
