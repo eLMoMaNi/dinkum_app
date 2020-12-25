@@ -129,7 +129,7 @@ class _ArticleCardState extends State<ArticleCard> {
                 },
               )
             ],
-          )
+          ),
         ],
       ),
     );

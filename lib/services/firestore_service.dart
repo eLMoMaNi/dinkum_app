@@ -32,7 +32,7 @@ class FirestoreService {
   Future<List<Article>> getArticles(List<String> categories) async {
     QuerySnapshot coll = await _getCollectionQuery("articles", categories);
     print("coll = ${coll.docs}");
-    print(coll.docs.isEmpty);
+    print(coll.docs[1].data());
     if (coll.docs.isEmpty) return [];
     return coll.docs.map((e) => Article.fromSnapshot(e)).toList();
   }

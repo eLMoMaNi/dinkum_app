@@ -31,13 +31,15 @@ class Article {
   Article.fromSnapshot(DocumentSnapshot snapshot) {
     Map<String, dynamic> data = snapshot.data();
     title = data["title"] ?? "No Title Error";
-    content = data["content"] ?? "No Content Error";
+
+    content = data["content"].toString().replaceAll('\\n', '\n\n') ??
+        "No Content Error";
     categories = List.from(data["categories"] ?? []);
     featuredImg = data["featured_img"] ?? "https://via.placeholder.com/300";
-    authorId = data["author_id"] ?? "unknown";
-    id = snapshot.id ?? "";
-    upvotes = data["upvotes"] ?? 0;
-    downvotes = data["downvotes"] ?? 0;
+    authorId = data["author_id"].toString() ?? "unknown";
+    id = snapshot.id.toString() ?? "";
+    upvotes = (data["upvotes"]) ?? 0;
+    downvotes = (data["downvotes"]) ?? 0;
     votes = upvotes - downvotes; //??
   }
 }

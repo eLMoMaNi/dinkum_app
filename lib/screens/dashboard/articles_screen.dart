@@ -26,6 +26,7 @@ class _ArticlesScreenState extends State<ArticlesScreen> {
           future: FirestoreService().getArticles(selectedCategories),
           builder: (_, snapshot) {
             if (snapshot.hasError) {
+              //  throw snapshot.error;
               print(snapshot.error);
               return Center(child: Text("Something went wrong"));
             }

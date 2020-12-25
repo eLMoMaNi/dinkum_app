@@ -13,26 +13,29 @@ class ArticleScreen extends StatelessWidget {
         title: Text(article.title),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 200,
-              width: double.infinity,
-              child: Image.network(
-                article.featuredImg,
-                fit: BoxFit.cover,
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            children: [
+              SizedBox(
+                height: 200,
+                width: double.infinity,
+                child: Image.network(
+                  article.featuredImg,
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Text(
-              article.content,
-              style: TextStyle(
-                fontFamily: "Comfortaa",
+              SizedBox(
+                height: 10,
               ),
-            ),
-          ],
+              Text(
+                article.content,
+                style: TextStyle(
+                  fontFamily: "Comfortaa",
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
