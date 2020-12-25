@@ -53,9 +53,9 @@ class _SwipeBoxState extends State<SwipeBox> {
           if (_currentDeg <= -50)
             //call function if reached threshold
             widget.onSwipeRight();
-          // go back to home place and cancel
-          else
-            _currentDeg = 0;
+
+          // go back to home place
+          _currentDeg = 0;
         } else if ((_currentDeg % 180) <= 90) {
           //if degree is less than 90'
           //go back
@@ -97,7 +97,8 @@ class _SwipeBoxState extends State<SwipeBox> {
             child: Container(
               alignment: Alignment.centerLeft,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                //mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
                     height: 15,
@@ -115,11 +116,9 @@ class _SwipeBoxState extends State<SwipeBox> {
             ),
           ),
         ),
-        Positioned.fill(
-          child: Transform.translate(
-            offset: Offset(xOffset * -1.0, 0),
-            child: widget.children[0],
-          ),
+        Transform.translate(
+          offset: Offset(xOffset * -1.0, 0),
+          child: widget.children[0],
         )
       ],
     );
